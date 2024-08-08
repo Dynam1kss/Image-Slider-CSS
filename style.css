@@ -18,6 +18,7 @@
     transform-style: preserve-3d;
     transform: perspective(1000px);
     animation: autoRun 20s linear infinite;
+    z-index: 2;
 }
 
 @keyframes autoRun {
@@ -54,6 +55,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    z-index: 1;
 }
 
 .banner .content h1 {
@@ -61,6 +63,16 @@
     font-size: 16em;
     line-height: 1em;
     color: #25283b;
+    position: relative;
+}
+
+.banner .content h1:after {
+    position: absolute;
+    inset: 0 0 0 0;
+    content: attr(data-content);
+    z-index: 2;
+    -webkit-text-stroke: 2px #d2d2d2;
+    color: transparent;
 }
 
 .banner .content .author {
@@ -83,4 +95,5 @@
     background-size: auto 130%;
     background-repeat: no-repeat;
     background-position: top center;
+    z-index: 1;
 }
